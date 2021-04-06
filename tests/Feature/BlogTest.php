@@ -21,20 +21,20 @@ class BlogTest extends TestCase
     }
 
     public function test_post_id_get_request(){
-        $response = $this->get('/post/1');
+        $response = $this->get('/blog/1');
 
         $response->assertStatus(200);
     }
 
     public function test_get_unexisted_post(){
-        $response = $this->get('/post/56');
+        $response = $this->get('/blog/56');
 
         $response->assertStatus(404);
     }
 
     public function test_post_responce(){
-        $response = $this->get('/post/1');
+        $response = $this->get('/blog/1');
 
-        $response->assertViewHas('post');
+        $response->assertViewHas('posts');
     }
 }

@@ -26,12 +26,7 @@ Route::get('/post', function () {
     ]);
 });
 
-Route::get('/post/add', function () {
-    DB::table('clients')->insert([
-        'title' => 'Hello',
-        'body' => 'It is lab4'
-    ]);
-});
+
 
 Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/blog/create', function(){
@@ -39,6 +34,6 @@ Route::get('/blog/create', function(){
 });
 Route::post('blog/create', [BlogController::class, 'store'])->name('add-post');
 
-
+Route::get('blog/{id}', [BlogController::class, 'get_post']);
 
 
