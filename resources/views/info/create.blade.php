@@ -13,7 +13,7 @@
     <input type="text" name="name" placeholder="name">
     <input type="text" name="surname" placeholder="surname">
     <input type="file" name="photo" accept="image/png,image/jpeg">
-    <button type="submit">Create111111111111111111111111111111111111</button>
+    <button type="submit">Create</button>
     </form>
 </body>
 </html>

@@ -8,6 +8,9 @@ use App\Http\Controllers\BlogController;
 use App\Models\UserInfo;
 use App\Http\Controllers\UserInfoController;
 
+use App\Http\Controllers\MailController;
+
+use App\Http\Controllers\LocalizatioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +25,18 @@ use App\Http\Controllers\UserInfoController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/profile/{lang}', function ($lang) {
+    App::setlocale($lang);
+    return view('profile');
+})->name('main');
+
+Route::get('/profile/2', function () {
+    return view('page2');
+})->name('second');
+Route::get('/profile/3', function () {
+    return view('page3');
+})->name('third');
 
 Route::get('/post', function () {
     DB::table('posts')->insert([
@@ -45,3 +60,6 @@ Route::get('/userInfo/create', function(){
     return view('info.create');
 });
 Route::post('userInfo/create', [UserInfoController::class, 'store'])->name('add-user');
+
+Route::get('mail/send', [MailController::class, 'send']);
+
