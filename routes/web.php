@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 use App\Http\Controllers\BlogController;
+
+use App\Models\UserInfo;
+use App\Http\Controllers\UserInfoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,4 +40,8 @@ Route::post('blog/create', [BlogController::class, 'store'])->name('add-post');
 
 Route::get('blog/{id}', [BlogController::class, 'get_post']);
 
-
+Route::get('/userInfo', [UserInfoController::class, 'index']);
+Route::get('/userInfo/create', function(){
+    return view('info.create');
+});
+Route::post('userInfo/create', [UserInfoController::class, 'store'])->name('add-user');
